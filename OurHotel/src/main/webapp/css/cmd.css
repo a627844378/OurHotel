@@ -1,0 +1,152 @@
+          	* {
+          		margin: 0px;
+          		padding: 0px;
+          	}
+          	
+          	.toplink {
+          		width: 1349px;
+          		height: 80px;
+          		background-color: rgb(234,247,234);
+          	}
+          	
+          	.photo {
+          		width: 100%;
+          		height: 295px;
+          	}
+          	
+          	.mao {
+          		width: 100%;
+          		height: 51px;
+          		position: fixed;
+          		background-color: rgba(245, 245, 245, 0.3);
+          	}
+          	
+          	.main {
+          		width: 100%;
+          		height: 1800px;
+          		margin-top: 51px;
+          	}
+          	
+          	.xin {
+          		width: 1080px;
+          		height: 300px;
+          		margin: 0 auto;
+          	}
+          	
+          	.p1 {
+          		width: 672.5px;
+          		height: 293px;
+          		float: left;
+          		overflow: hidden;
+          		border: 1px solid black;
+          	}
+          	
+          	.p1 img {
+          		cursor: pointer;
+          		transition: all 1s;
+          	}
+          	
+          	.p1 img:hover {
+          		transform: scale(1.2);
+          	}
+          	
+          	.p2 {
+          		width: 334.25px;
+          		height: 144.5px;
+          		float: left;
+          		border: 1px solid black;
+          		overflow: hidden;
+          	}
+          	
+          	.p2 img {
+          		cursor: pointer;
+          		transition: all 1s;
+          	}
+          	
+          	.p2 img:hover {
+          		transform: scale(1.2);
+          	}
+          	
+          	.lookphoto {
+          		position: absolute;
+          		left: auto;
+          		right: 34px;
+          		top: 310px;
+          		z-index: 999;
+          	}
+          	
+          	.btn_look {
+          		width: 88px;
+          		height: 36px;
+          		font-size: 14px;
+          		font-weight: 900;
+          		line-height: 24px;
+          		background-color: white;
+          		border-radius: 5px;
+          		border: none;
+          	}
+          	
+          	.mao a {
+          		font-size: 14px;
+          		font-weight: 900;
+          		text-decoration: none;
+          		color: #000000;
+          	}
+          	
+          	.mao a:hover {
+          		font-size: 18px;
+          		color: green;
+          	}
+          	/*            .mao a:visited{
+            	color: green;
+            }*/
+          	
+          	.mao p {
+          		float: left;
+          		padding-left: 10px;
+          		line-height: 47px;
+          	}
+          	
+          	.title {
+          		width: 65px;
+          		height: 24px;
+          		background-color: silver;
+          		border-radius: 15px;
+          		float: left;
+          	}
+          	
+          	.title span {
+          		font-size: 12px;
+          		color: black;
+          		font-weight: 900;
+          		margin-left: 9px;
+          	}
+          	
+          	.title1 {
+          		width: 65px;
+          		height: 34px;
+          		background-color: rgb(234, 247, 234);
+          		border-radius: 5px;
+          		float: left;
+          		margin-left: 10px;
+          		margin-top: 35px;
+          	}
+          	
+          	.title1 span {
+          		font-size: 12px;
+          		color: green;
+          		line-height: 32px;
+          		font-weight: 900;
+          		margin-left: 9px;
+          	}
+          	
+          	.Sdate {
+          		width: 376px;
+          		height: 180px;
+          		border: 1px solid black;
+          		background-color: rgba(245, 245, 245.0.3);
+          		position: absolute;
+          		right: 30px;
+          		top: 430px;
+          		position: fixed;
+          	}

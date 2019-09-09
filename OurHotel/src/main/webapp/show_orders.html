@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>数据 - AdminLTE2定制版</title>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!--font-family-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- title of site -->
+    <title>主页面</title>
+
+    <!-- For favicon png -->
+    <link rel="shortcut icon" type="image/icon" href="assets/logo/logo.jpg" />
+
+    <!--font-awesome.min.css-->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <!--linear icon css-->
+    <link rel="stylesheet" href="assets/css/linearicons.css">
+
+    <!--animate.css-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <!--flaticon.css-->
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+
+    <!--slick.css-->
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+
+    <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- bootsnav -->
+    <link rel="stylesheet" href="assets/css/bootsnav.css">
+
+    <!--style.css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--responsive.css-->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="plugins/morris/morris.css">
+    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="plugins/treeTable/jquery.treetable.css">
+    <link rel="stylesheet" href="plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet" href="plugins/select2/select2.css">
+    <link rel="stylesheet" href="plugins/colorpicker/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet" href="plugins/adminLTE/css/AdminLTE.css">
+    <link rel="stylesheet" href="plugins/adminLTE/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="plugins/ionslider/ion.rangeSlider.css">
+    <link rel="stylesheet" href="plugins/ionslider/ion.rangeSlider.skinNice.css">
+    <link rel="stylesheet" href="plugins/bootstrap-slider/slider.css">
+    <link rel="stylesheet" href="plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            // {"corders":[{"corder_id":22,"client_telephone":"120","room_id":1,"corder_st_date":1567440000000,
+            //     "corder_ed_date":1567612800000},{"corder_id":23,"client_telephone":"120","room_id":3,
+            //     "corder_st_date":1567526400000,"corder_ed_date":1568217600000}],
+            //     "rooms":[{"room_id":1,"room_num":"3201","room_type":"特价房","room_price":129.0,"room_status":"Y","room_imgId":null,"room_describe":"这是第一个房间"},{"room_id":3,"room_num":"2201","room_type":"标准套房","room_price":150.0,"room_status":"Y","room_imgId":null,"room_describe":"适合个人居住"}],"client":
+            //     {"client_id":1,"client_no":"51102319965997555","client_name":"波哥","client_sex":"女","client_age":18,"client_address":"四川省眉山市","client_telephone":"120","client_password":"admin"}}
+
+            $.post("corder1/showOrder", "", function (data) {
+                var client_info = "您好：" + data.client.client_name;
+                $("#client_info").html(client_info)
+                var corders = data.corders
+                var rooms = data.rooms
+                var client = data.client
+                var show = $("#show_info")
+                for (var i = 0; i < rooms.length; i++) {
+                    var tr = "<tr> <td>"+rooms[i].room_num+"</td> <td>"+client.client_name+"</td> <td>"+client.client_telephone+"</td> <td>"+corders[i].corder_st_date+"</td> <td>"+corders[i].corder_ed_date+"</td></tr>"
+                    show.append(tr)
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+<header id="header-top" class="header-top">
+    <ul>
+        <li>
+            <div class="header-top-left">
+                <ul>
+                    <li class="select-opt">
+                        <select name="language" id="language">
+                            <option value="CN">中文</option>
+                            <option value="EN">英文</option>
+                            <option value="FR">法语</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
+                        <select name="currency" id="currency">
+                            <option value="RMB">人民币</option>
+                            <option value="USA">美元</option>
+                            <option value="FRB">法郎</option>
+                        </select>
+                    </li>
+                    <li class="select-opt">
+                        <a href="#"><span class="lnr lnr-magnifier"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="head-responsive-right pull-right">
+            <div class="header-top-right">
+                <ul>
+                    <li class="header-top-contact">
+                        <a href="mine.html" id="client_name_show"></a>
+                    </li>
+                    <li class="header-top-contact">
+                        <a id="to_login" href="login.html">登陆</a>
+                    </li>
+                    <li class="header-top-contact">
+                        <a href="register.html">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+</header>
+<!--/.header-top-->
+<!-- Start Navigation -->
+<nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+    <div class="container">
+
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a href="index.html" class="navbar-brand">Race <span> 回到主页</span></a>
+
+        </div>
+        <!--/.navbar-header-->
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <li class="scroll">
+                    <a id="client_info" href="mine.html">我的信息</a>
+                </li>
+                <li class=" scroll active">
+                    <a href="login.html">登 录</a>
+                </li>
+                <li class="scroll">
+                    <a href="register.html">注 册</a>
+                </li>
+
+            </ul>
+            <!--/.nav -->
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!--/.container-->
+</nav>
+<!--/nav-->
+<div class="content-wrapper" style="margin-right: 210px;background-color: #FFF">
+
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead >
+                <tr>
+                    <th>房间号</th>
+                    <th>用户姓名</th>
+                    <th>电话号码(s)</th>
+                    <th>入住时间</th>
+                    <th>退房时间</th>
+                </tr>
+                </thead>
+                <tbody id="show_info">
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    </section>
+    <!-- /.content -->
+</div>
+</body>
+
+</html>

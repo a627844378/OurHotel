@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>房间展示</title>
+    <link rel="icon" type="image/jpg" href="img/timg.jpg" />
+    <link rel="stylesheet" type="text/css" href="css/cmd.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        function lookimg(str) {
+            var newwin = window.open()
+            newwin.document.write("<img src=" + str + " />")
+        }
+
+        $(function () {
+            $.post("room1/showRoom", "", function (data) {
+                for (var i = 0; i < data.room_imgId.length; i ++){
+                    var index = i + 1;
+                    var id = "#img"+index;
+                    $(id).prop("src", data.room_imgId[i].img_name)
+                }
+            })
+
+            $("#sure").click(function () {
+                $.post("corder1/checkIn", {corder_st_date:$("#date1").val(),corder_ed_date:$("#date2").val()}, function (data) {
+                    alert(data);
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+<div id="bigbox">
+    <div class="toplink">
+        <div style="width: 82px;height: 80px;float: left;">
+            <div style="width: 34px;height: 34px;margin: 0 auto;padding: 24px;">
+                <img src="img/maozhua.jpg" style="width: 34px;height: 34px;" />
+            </div>
+        </div>
+        <div style="width: 60px;height: 32px;float: right;padding: 24px;">
+            <a href="index.html" style="text-decoration: none;color: grey;">返回</a>
+        </div>
+    </div>
+    <div class="photo">
+        <div class="p1">
+            <img id="img1" src="img/p1.jpg" style="width: 100%;" onclick="lookimg(this.src)" />
+        </div>
+        <div style="width: 672.5px;height:293px;float: left;border: 1px solid black;">
+            <div class="p2">
+                <img id="img2" src="img/p2.jpg" style="width: 100%;" />
+            </div>
+            <div class="p2">
+                <img id="img3" src="img/p3.jpg" style="width: 100%;" />
+            </div>
+            <div class="p2">
+                <img id="img4" src="img/p4.jpg" style="width: 100%;" />
+            </div>
+            <div class="p2">
+                <img id="img5" src="img/p5.jpg" style="width: 100%;" />
+            </div>
+        </div>
+    </div>
+    <div class="lookphoto">
+        <button type="button" class="btn_look" aria-busy="false" data-veloute="hero-view-photos-button">查看照片</button>
+    </div>
+    <div class="mao">
+        <div style="width: 1080px;height: 51px;margin: 0 auto;">
+            <p>
+                <a href="#xiangqing">详情</a>
+            </p>
+            <p>·</p>
+            <p>
+                <a href="#pingjia">评价</a>
+            </p>
+            <p>·</p>
+            <p>
+                <a href="#keding">可定日期</a>
+            </p>
+            <p>·</p>
+            <p>
+                <a href="#xuzhi">须知</a>
+            </p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="xin">
+            <div style="width: 611px;border-top: 1px solid gainsboro;">
+                <br />
+                <p>
+                    <a href="#" name="xiangqing" style="text-decoration: none;color: darkgrey;">详情</a>
+                </p>
+                <br />
+                <h1>今日·特价房 留白-北欧小清新</h1>
+                <br />
+                <p>·1间卧室&nbsp;&nbsp;&nbsp;&nbsp;·1张床&nbsp;&nbsp;&nbsp;&nbsp;·1间卫生1&nbsp;&nbsp;&nbsp;&nbsp;·最多住2人</p>
+                <br />
+                <div style="width: 110px;height: 24px;border-radius: 15px;background-color: rgb(234,247,234);float: left;">
+                    <span style="font-size: 12px;font-weight: 900;color: green;margin-left: 5px;">4.9分 · 132条评论</span>
+                </div>
+                <div class="title">
+                    <span>高性价比</span>
+                </div>
+                <div class="title">
+                    <span>可以做饭</span>
+                </div>
+                <div class="title">
+                    <span>免费停车</span>
+                </div>
+                <div class="title">
+                    <span>有洗衣机</span>
+                </div>
+            </div>
+            <div style="width: 611px;border-top: 1px solid gainsboro;margin-top: 51px;">
+                <br />
+                <p>
+                    <a href="#" name="pingjia" style="text-decoration: none;color: darkgrey;">评价</a>
+                </p>
+                <div style="width: 611px;height: 275px;">
+                    <img src="img/1.png" style="width: 600px;" />
+                </div>
+                <div style="width: 611px;height: 110px;border-top: 1px solid gainsboro;border-bottom: 1px solid gainsboro;">
+
+                    <div class="title1">
+                        <span>全部评价</span>
+                    </div>
+                    <div class="title1">
+                        <span>位置便利</span>
+                    </div>
+                    <div class="title1">
+                        <span>设备设施</span>
+                    </div>
+                    <div class="title1">
+                        <span>干净卫生</span>
+                    </div>
+                    <br />
+                </div>
+                <div class="box0">
+                    <img src="img/4.png">
+                </div>
+            </div>
+            <div style="width: 611px;border-top: 1px solid gainsboro;margin-top: 51px;">
+                <br />
+                <p>
+                    <a href="#" name="keding" style="text-decoration: none;color: darkgrey;">可定日期</a>
+                </p>
+                <img src="img/6.png">
+            </div>
+            <div style="width: 611px;border-top: 1px solid gainsboro;margin-top: 51px;">
+                <br />
+                <p>
+                    <a href="#" name="xuzhi" style="text-decoration: none;color: darkgrey;">须知</a>
+                </p>
+                <img src="img/3.png" />
+
+                <p>基本要求：</p>
+                <p>1.禁止吸烟、禁止黄赌毒</p>
+                <p>2.每天下午2：00后入住，次日13：00前到前台退房，如需续住请电话联系前台。</p>
+                <p>温馨提示：</p>
+                <p>为了保护您的账号隐私和付款安全，请不要相信其它任何平台的折扣或礼金券代订。</p>
+            </div>
+        </div>
+        <div class="Sdate">
+            <form id="corder_info" style="margin-left: 50px;margin-top: 10px;">
+                <table>
+                    <tr>
+                        <td><span style="font-size: 20px;color: red;">￥120</span>每晚</td>
+                        <td><span style="font-size: 10px;text-decoration: line-through;">￥180</span></td>
+                    </tr>
+                    <tr>
+                        <td>入住日期</td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name="corder_st_date" id="date1"></td>
+                    </tr>
+                    <tr>
+                        <td>退房日期</td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name="corder_ed_date" id="date2"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="sure" type="button" value="预定" style="width: 100px;height: 30px;font-size: 14px;font-weight: 900;background-color: orangered;border-radius: 5px;border: none;"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

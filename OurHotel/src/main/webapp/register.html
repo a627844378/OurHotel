@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>注册界面</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" /> 
+
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script>
+		// name="usernum" userpass name pass age address sex
+		$(function () {
+			$("#sure").click(function () {
+				var usernum = $("input[name=client_telephone]").val();
+				var userpass = $("input[name=client_password]").val();
+				var name = $("input[name=client_name]").val();
+				var pass = $("input[name=client_no]").val();
+				var age = $("input[name=client_age]").val();
+				var address = $("input[name=client_address]").val();
+				var sex = $("input[name=client_sex]").val();
+				if(age == null || age == "" || address == null || address == "" || sex == null || sex == "" || usernum == null || usernum == "" || userpass == null || userpass == "" || name == null || name == "" || pass == null || pass == ""){
+					alert("注册信息不完整，请完善信息");
+				}else{
+					$.post(" /registerClient", $("#client_info").serialize(), function (data) {
+						alert(data)
+					})
+				}
+
+			})
+		})
+	</script>
+</head>
+<style>
+	.height{
+		height: 50px;
+		margin-top: 20px;
+	}
+	.height input{
+		margin-left: 15px;
+	}
+</style>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form id="client_info" class="login100-form validate-form">
+					<span class="login100-form-title p-b-49">注册</span>
+
+
+
+
+
+
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入用户名">
+						<span class="label-input100">用户名</span>
+						<input class="input100" type="text" name="client_telephone" placeholder="请输入用户名或手机号" autocomplete="off">
+						<span class="focus-input100" data-symbol="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="请输入密码">
+						<span class="label-input100">密码</span>
+						<input class="input100" type="text" name="client_password" placeholder="请输入密码">
+						<span class="focus-input100" data-symbol="&#xf191;"></span>
+					</div>
+
+				
+					<div class="wrap-input100 validate-input">
+						<span class="label-input100">姓名</span>
+						<input class="input100" type="text" name="client_name" placeholder="请输入姓名">
+						<span class="focus-input100" data-symbol="&#xf192;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="请输入身份证">
+						<span class="label-input100">身份证</span>
+						<input class="input100" type="text" name="client_no" placeholder="请输入身份证号">
+						<span class="focus-input100" data-symbol="&#xf194;"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate="请输入年龄">
+						<span class="label-input100">年龄</span>
+						<input class="input100" type="number" name="client_age" placeholder="请输入年龄">
+						<span class="focus-input100" data-symbol="&#xf253;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="请输入详细地址">
+						<span class="label-input100">详细地址</span>
+						<input class="input100" type="text" name="client_address" placeholder="请输入详细地址">
+						<span class="focus-input100" data-symbol="&#xf200;"></span>
+					</div>
+					<div class="wrap-input100 validate-input height" data-validate="请输入性别">
+							<span class="label-input100">性别</span>
+							<input  type="radio" name="client_sex" placeholder="请输入密码" value="男">男
+							<input  type="radio" name="client_sex" placeholder="请输入密码" value="女">女
+							<!-- <span class="focus-input100" data-symbol="&#xf190;"></span> -->
+						</div>
+					<div class="text-right p-t-8 p-b-31">
+						<a href="javascript:"></a>
+					</div>
+
+					<input   type="button">
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<buttom id="sure" class="login100-form-btn">注 册</buttom>
+						</div>
+					</div>
+					</input>
+
+					<div class="txt1 text-center p-t-54 p-b-20">
+						<span></span>
+					</div>
+
+					<div class="flex-c-m">
+						<a href="#" class="login100-social-item bg1">
+							<i class="fa fa-wechat"></i>
+						</a>
+
+						<a href="#" class="login100-social-item bg2">
+							<i class="fa fa-qq"></i>
+						</a>
+
+						<a href="#" class="login100-social-item bg3">
+							<i class="fa fa-weibo"></i>
+						</a>
+					</div>
+
+					<div class="flex-col-c p-t-25">
+						<a href="login.html" class="txt2">前去登陆</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
